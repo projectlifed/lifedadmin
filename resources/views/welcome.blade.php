@@ -167,6 +167,7 @@
 <body>
     <main class="main-flex">
         <div class="login-box">
+            <img src="{{ asset('images/lifed-logo-black.webp') }}" alt="Lifed Logo" class="logo">
             <h1>Your wellness, one step away</h1>
             @if (session('status'))
                 <div class="text-green-600" style="margin-bottom: 16px;">
@@ -194,19 +195,14 @@
                         <input type="checkbox" name="remember">
                         Remember me
                     </label>
-                    @if (Route::has('password.request'))
-                        <a class="text-blue-600" href="{{ route('password.request') }}">
-                            Forgot your password?
-                        </a>
-                    @endif
+                    <a class="text-blue-600" href="{{ route('register') }}">
+                        Register Now!
+                    </a>
                 </div>
                 <div>
                     <button type="submit">Login</button>
                 </div>
             </form>
-        </div>
-        <div class="image-box">
-            <img src="{{ asset('images/welcome-image.png') }}" alt="Welcome" class="welcome-image">
         </div>
     </main>
 </body>
