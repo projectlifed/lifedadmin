@@ -17,9 +17,13 @@ Route::post('/logout', function (Illuminate\Http\Request $request) {
     Auth::logout();
     $request->session()->invalidate();
     $request->session()->regenerateToken();
-    return redirect('/login');
+    return redirect('/');
 })->name('logout');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth');
+
+Route::get('/register', function () {
+    return view('register');
+})->name('register');
