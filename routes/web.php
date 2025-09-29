@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\HealthmateController;
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,3 +30,6 @@ Route::get('/dashboard', function () {
 Route::get('/register', function () {
     return view('register');
 })->name('register');
+
+
+Route::post('/healthmate/register', [HealthmateController::class, 'store'])->name('healthmate.store');
