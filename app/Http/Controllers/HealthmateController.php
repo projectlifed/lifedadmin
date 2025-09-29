@@ -12,7 +12,6 @@ class HealthmateController extends Controller
 {
     public function store(Request $request)
     {
-        // Validate input
         $request->validate([
             'centre_name' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
@@ -21,13 +20,12 @@ class HealthmateController extends Controller
             'country' => 'required|string',
             'state' => 'required|string',
             'city' => 'required|string',
-            'password' => 'required|min:6|confirmed'
+            'password' => 'required|min:6|confirmed',
         ]);
 
         DB::beginTransaction();
 
         try {
-            // Create Healthmate
             $healthmate = Healthmate::create([
                 'centre_name' => $request->centre_name,
                 'phone' => $request->phone,
@@ -38,8 +36,8 @@ class HealthmateController extends Controller
                 'city' => $request->city,
             ]);
 
-            // Create related User
             $healthmate->users()->create([
+                'name' => $request->centre_name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
@@ -52,4 +50,5 @@ class HealthmateController extends Controller
             return redirect()->back()->with('error', 'Something went wrong: ' . $e->getMessage());
         }
     }
+
 }
