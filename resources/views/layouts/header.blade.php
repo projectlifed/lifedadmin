@@ -16,7 +16,9 @@
                 @csrf
             </form>
         @endauth
-
+        <a class="text-blue-600" href="{{ route('register') }}">
+            Register Now!
+        </a>
         @guest
             <a href="{{ route('login') }}" class="signin-link"><span class="icon">🔑</span> SignIn</a>
         @endguest
