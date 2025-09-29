@@ -26,7 +26,6 @@ class HealthmateController extends Controller
         DB::beginTransaction();
 
         try {
-
             $healthmate = Healthmate::create([
                 'centre_name' => $request->centre_name,
                 'phone' => $request->phone,

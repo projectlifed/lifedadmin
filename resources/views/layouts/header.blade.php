@@ -5,6 +5,7 @@
 </div>
 <div class="main-header">
     <img src="{{ asset('images/lifed-logo-black.webp') }}" alt="Lifed Logo" class="logo">
+
     <div class="right">
         <a href="#" class="support-link"><span class="icon">📞</span> Quick Support</a>
         @auth
